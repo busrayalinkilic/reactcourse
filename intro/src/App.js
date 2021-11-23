@@ -4,6 +4,9 @@ import CategoryList from "./CategoryList";
 import Navi from "./Navi";
 import ProductList from "./ProductList";
 import alertify from "alertifyjs";
+import { Route, Routes } from "react-router-dom";
+import NotFound from "./NotFound";
+import CartList from "./CartList";
 
 export default class App extends Component {
   state = { currentCategory: "", products: [], cart: [] };
@@ -38,7 +41,7 @@ export default class App extends Component {
     }
 
     this.setState({ cart: newCart });
-    alertify.succes(product.productName + "added to cart",2);
+    alertify.succes(product.productName + "added to cart", 2);
   };
 
   removeFromCart = (product) => {
@@ -65,12 +68,23 @@ export default class App extends Component {
               />
             </Col>
             <Col xs="9">
-              <ProductList
-                products={this.state.products}
-                addToCart={this.addToCart}
-                currentCategory={this.state.currentCategory}
-                info={productInfo}
-              />
+              <Routes>
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
+                    <ProductList
+                      {...props}
+                      products={this.state.products}
+                      addToCart={this.addToCart}
+                      currentCategory={this.state.currentCategory}
+                      info={productInfo}
+                    />
+                  )}
+                />
+                <Route exact path="/cart" component={CartList} />
+                <Route component={NotFound} />
+              </Routes>
             </Col>
           </Row>
         </Container>
