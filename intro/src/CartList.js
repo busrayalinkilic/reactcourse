@@ -1,3 +1,4 @@
+import Button from "@restart/ui/esm/Button";
 import React, { Component } from "react";
 import { Table } from "reactstrap";
 
@@ -24,6 +25,15 @@ class CartList extends Component {
               <td>{cartItem.product.unitPrice}</td>
               <td>{cartItem.product.unitsInStock}</td>
               <td>{cartItem.product.quantity}</td>
+              <th></th>
+              <td>
+                <Button
+                  color="danger"
+                  onClick={() => this.props.removeFromCart(cartItem.product)}
+                >
+                  Remove
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -31,9 +41,7 @@ class CartList extends Component {
     );
   }
   render() {
-    return <div>
-         {this.renderCart()}
-    </div>;
+    return <div>{this.renderCart()}</div>;
   }
 }
 

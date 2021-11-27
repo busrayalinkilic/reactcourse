@@ -3,7 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import CategoryList from "./CategoryList";
 import Navi from "./Navi";
 import ProductList from "./ProductList";
-// import alertify from "alertifyjs";
+import alertify from "alertifyjs";
 import { Route, Switch } from "react-router-dom";
 import NotFound from "./NotFound";
 import CartList from "./CartList";
@@ -41,12 +41,13 @@ export default class App extends Component {
     }
 
     this.setState({ cart: newCart });
-    // alertify.succes(product.productName + "added to cart", 2);
+    alertify.success(product.productName + "added to cart", 2);
   };
 
   removeFromCart = (product) => {
     let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
     this.setState({ cart: newCart });
+    alertify.error(product.productName + "remove from cart!");
   };
 
   render() {
