@@ -3,8 +3,8 @@ import { Col, Container, Row } from "reactstrap";
 import CategoryList from "./CategoryList";
 import Navi from "./Navi";
 import ProductList from "./ProductList";
-import alertify from "alertifyjs";
-import { Route, Routes } from "react-router-dom";
+// import alertify from "alertifyjs";
+import { Route, Switch } from "react-router-dom";
 import NotFound from "./NotFound";
 import CartList from "./CartList";
 
@@ -41,7 +41,7 @@ export default class App extends Component {
     }
 
     this.setState({ cart: newCart });
-    alertify.succes(product.productName + "added to cart", 2);
+    // alertify.succes(product.productName + "added to cart", 2);
   };
 
   removeFromCart = (product) => {
@@ -68,7 +68,7 @@ export default class App extends Component {
               />
             </Col>
             <Col xs="9">
-              <Routes>
+              <Switch>
                 <Route
                   exact
                   path="/"
@@ -82,9 +82,19 @@ export default class App extends Component {
                     />
                   )}
                 />
-                <Route exact path="/cart" component={CartList} />
+                <Route
+                  exact
+                  path="/cart"
+                  render={(props) => (
+                    <CartList
+                      {...props}
+                      cart={this.state.cart}
+                      removeFromCart={this.removeFromCart}
+                    />
+                  )}
+                />
                 <Route component={NotFound} />
-              </Routes>
+              </Switch>
             </Col>
           </Row>
         </Container>
