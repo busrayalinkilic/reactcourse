@@ -35,7 +35,12 @@ export default class Navi extends React.Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink>
-                <Link to="form1">Form Demo 1</Link>
+                  <Link to="form1">Form Demo 1</Link>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>
+                  <Link to="form2">Form Demo 2</Link>
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -43,11 +48,14 @@ export default class Navi extends React.Component {
                   GitHub
                 </NavLink>
               </NavItem>
-              <CartSummary removeFromCart={this.props.removeFromCart} cart= {this.props.cart}/>
+              <CartSummary
+                removeFromCart={this.props.removeFromCart}
+                cart={this.props.cart}
+              />
             </Nav>
           </Collapse>
         </Navbar>
-      </div> 
+      </div>
     );
   }
 }
