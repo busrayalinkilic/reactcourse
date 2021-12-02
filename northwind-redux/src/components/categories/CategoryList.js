@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as categoryActions from '../../redux/actions/categoryActions'
+
  class CategoryList extends Component {
      render() {
           return (
@@ -14,6 +17,13 @@ import { connect } from 'react-redux'
 function mapStateToProps(state){
      return{
           currentCategory:state.changeCategoryReducer
+     }
+}
+function mapDispatchToProps(dispatch){
+     return{
+          actions:{
+               getCategories:bindActionCreators(categoryActions.getCategories,dispatch)
+          }
      }
 }
 
