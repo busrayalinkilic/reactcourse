@@ -5,7 +5,7 @@ export default function cartReducer(state = initialState.cart, action) {
   switch (action.type) {
     case actionTypes.ADD_TO_CART:
       var addedItem = state.find(
-        (c) => c.product.id === actionTypes.payload.product.id
+        (c) => c.product.id === action.payload.product.id
       );
       if (addedItem) {
         var newState = state.map((cartItem) => {
