@@ -8,7 +8,7 @@ export function getProductsSuccess(products) {
    
    export function getProducts(categoryId) {
      return function (dispatch) {      
-       let url = "http://localhost:3000/productss";
+       let url = "http://localhost:3000/products";
        if(categoryId){
          url= url+ "?categoryId=" +categoryId
        }

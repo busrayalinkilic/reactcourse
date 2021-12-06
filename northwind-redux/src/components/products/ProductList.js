@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import * as productActions from "../../redux/actions/productActions";
 import { Table } from "reactstrap";
 
+
 class ProductList extends Component {
   componentDidMount() {
     this.props.actions.getProducts();
@@ -25,11 +26,11 @@ class ProductList extends Component {
               <th>Product Name</th>
               <th>Unit Price</th>
               <th>Quantity Per Unit</th>
-              <th>Unit In Stock</th>
+              <th>Units In Stock</th>
             </tr>
           </thead>
           <tbody>
-            {this.props.products.map((product) => (
+           {this.props.products.map(product=>(
               <tr key={product.id}>
                 <th scope="row">{product.id}</th>
                 <td>{product.productName}</td>
@@ -37,7 +38,9 @@ class ProductList extends Component {
                 <td>{product.quantityPerUnit}</td>
                 <td>{product.unitsInStock}</td>
               </tr>
-            ))}
+           ) )}
+             
+           
           </tbody>
         </Table>
       </div>
