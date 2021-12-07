@@ -28,12 +28,12 @@ export default class Navi extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand href="/">E-commerne</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="https://www.linkedin.com/in/busrayalinkilic/">LinkedIn</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/busrayalinkilic">
